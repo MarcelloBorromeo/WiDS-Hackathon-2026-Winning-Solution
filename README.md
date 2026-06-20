@@ -53,23 +53,23 @@ public-LB score and underpins the 2nd-place private result.
 
 ```
                      ┌──────────────────────────────────────────────┐
-  221 fires ───────▶ │ STAGE 1 · Backbone                            │
-                     │  RSF + GBM + Coxnet, 10-fold StratifiedKFold   │
-                     │  Nelder-Mead blend on the hybrid objective     │
-                     │  (Coxnet anchors, ~0.78 weight)                │
+  221 fires ───────▶ │ STAGE 1 · Backbone                           │
+                     │  RSF + GBM + Coxnet, 10-fold StratifiedKFold │
+                     │  Nelder-Mead blend on the hybrid objective   │
+                     │  (Coxnet anchors, ~0.78 weight)              │
                      └───────────────────────┬──────────────────────┘
-                                              │  backbone survival curves
+                                             │  backbone survival curves
    69 close fires ──▶ ┌─────────────────────────────────────────────┐
-                      │ STAGE 2 · Close-fire timing                  │
-                      │  Coxnet (alpha=0.20, l1=0.5) on close fires  │
-                      │  7-fold KFold, averaged over 5 seeds         │
+                      │ STAGE 2 · Close-fire timing                 │
+                      │  Coxnet (alpha=0.20, l1=0.5) on close fires │
+                      │  7-fold KFold, averaged over 5 seeds        │
                       └──────────────────────┬──────────────────────┘
                                              │  timing-calibrated probs
                       ┌─────────────────────────────────────────────┐
-                      │ STAGE 3 · Blend + calibrate                  │
-                      │  mixed = (1−β)·backbone + β·close   (β≤0.60)  │
-                      │  Platt @12h/24h · isotonic @48h/72h          │
-                      │  cummax → enforce monotonicity               │
+                      │ STAGE 3 · Blend + calibrate                 │
+                      │  mixed = (1−β)·backbone + β·close  (β≤0.60) │
+                      │  Platt @12h/24h · isotonic @48h/72h         │
+                      │  cummax → enforce monotonicity              │
                       └─────────────────────────────────────────────┘
 ```
 
