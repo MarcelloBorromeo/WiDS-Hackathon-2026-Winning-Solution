@@ -1,5 +1,7 @@
 # Wildfire Structure-Threat Survival Modeling — WiDS Datathon 2026
 
+https://www.kaggle.com/competitions/WiDSWorldWide_GlobalDathon26/
+
 > Survival-analysis ensemble that predicts *when* a wildfire will threaten a structure.
 > **2nd place** on the private leaderboard — team `btt_mapping`.
 
