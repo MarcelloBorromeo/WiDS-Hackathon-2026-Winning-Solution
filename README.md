@@ -26,12 +26,12 @@ Hybrid = 0.3 · C-index  +  0.7 · (1 − WBS)
 WBS    = 0.3 · BS@24h  +  0.4 · BS@48h  +  0.3 · BS@72h     (BS = Brier score)
 ```
 
-**Why it's hard — the data is tiny and adversarial:**
+**Why it's hard: the data is tiny and adversarial:**
 - 221 training fires, 95 test fires.
-- Only **69 "close" fires** (within 5000 m of a structure) carry timing signal — and *all 69 are
+- Only **69 "close" fires** (within 5000 m of a structure) carry timing signal and *all 69 are
   event=1*. The 152 far fires are all event=0.
 - The score is effectively decided by how well you rank and calibrate just **28 test close fires**.
-- **89% of test close fires are static** (zero closing speed) — so the timing signal is faint and
+- **89% of test close fires are static** (zero closing speed) so the timing signal is faint and
   every modeling choice risks memorizing n=69.
 
 This is a small-data discipline problem disguised as a modeling problem.
